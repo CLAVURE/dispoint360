@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,16 +14,16 @@
             </a-entity>
             <a-entity oculus-touch-controls="hand: right"></a-entity>
             <a-entity oculus-touch-controls="hand: left"></a-entity>
-            
         </a-entity>
 
         <a-assets>
+            <a-asset-item id="cityModel" src="models/low_poly_city/scene.gltf"></a-asset-item>
             <img src="img/grass.jfif" id="ground">
         </a-assets>
         
         <a-sky color="#6EBAA7"></a-sky>
-        <a-plane src="#ground" height="40" width="100" rotation="-90 0 0" repeat="20 20"></a-plane>
-        <a-box position="5 0 0" color="red" depth="2" height="52" width="2"></a-box>
+        <!-- <a-plane src="#ground" height="40" width="100" rotation="-90 0 0" repeat="20 20"></a-plane> -->
+        <a-entity scale="0.01 0.01 0.01" height="0" rotation="0 0 0" gltf-model="#cityModel" modify-materials></a-entity>
     </a-scene>
 </body>
 </html>
