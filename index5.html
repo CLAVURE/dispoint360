@@ -1,29 +1,37 @@
-<!DOCTYPE html>
+!<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispositif interactif</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-cursor-teleport@1.4.0/dist/aframe-cursor-teleport-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
 </head>
 <body>
     <a-scene cursor="rayOrigin: mouse">
-        <a-entity id="cameraRig" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head">
-            <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true">
-            </a-entity>
-            <a-entity oculus-touch-controls="hand: right"></a-entity>
-            <a-entity oculus-touch-controls="hand: left"></a-entity>
-            
-        </a-entity>
+        
+        <a-camera>
+            <a-entity cursor></a-entity>
+        </a-camera>
 
         <a-assets>
             <img src="img/grass.jfif" id="ground">
         </a-assets>
-        
-        <a-sky color="#6EBAA7"></a-sky>
-        <a-plane src="#ground" height="40" width="100" rotation="-90 0 0" repeat="20 20"></a-plane>
-        <a-box position="5 0 0" color="red" depth="2" height="2" width="2" animation="property: opacity; 0; dur: 2000; loop: true"></a-box>
+        <a-box class="box1" position="-2 1 -5" color="red" depth="1" height="1" width="1"
+                event-set__enter="_event: mouseenter; _target: .box2; color: #8FF7FF"
+                event-set__leave="_event: mouseleave; _target: .box2; color: green">
+        </a-box>
+        <a-box class="box2" position="0 1 -5" color="green" depth="1" height="1" width="1"
+                event-set__wireframes="_event: mouseenter; material.wireframe: true"
+                event-set__wireframesout="_event: mouseleave; material.wireframe: false">
+        </a-box>
+        <a-box class="box3" position="2 1 -5" color="yellow" depth="1" height="1" width="1"
+                event-set__disappear="_event: click; animation: property: material.opacity; to: 0">
+        </a-box>
+        <a-box class="box4" position="-2 3 -5" color="blue" depth="1" height="1" width="1"></a-box>
+        <a-box class="box5" position="0 3 -5" color="pink" depth="1" height="1" width="1"></a-box>
+        <a-box class="box6" position="2 3 -5" color="purple" depth="1" height="1" width="1"></a-box>
+
     </a-scene>
 </body>
 </html>
