@@ -12,8 +12,8 @@
         <a-entity id="cameraRig" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head">
             <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true">
             </a-entity>
-            <a-entity oculus-touch-controls="hand: right"></a-entity>
-            <a-entity oculus-touch-controls="hand: left"></a-entity>
+            <a-entity oculus-touch-controls="hand: right" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; curveShootingSpeed: 18; landingMaxAngle: 60" visible="true"></a-entity>
+            <a-entity oculus-touch-controls="hand: left" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; curveShootingSpeed: 18; landingMaxAngle: 60" visible="true"></a-entity>
         </a-entity>
 
         <a-assets>
